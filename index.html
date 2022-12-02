@@ -6,16 +6,6 @@
     </head>
     <body>
     <center>
-    <div id="popup" style="display:none">
-        <h1 id="header"><b>Welcome !</b></h1>
-        <h3 id="get">×</h3>
-        <hr>
-        <br />
-        <b id="content"><li>Welcome to the My web page this is the <br> Demo of pop up when the page is loaded ! <br>Thank you...</li></b>
-        <br />
-        <hr>
-   <div id="close">Close</div>
-    </div>
     <div id="container">
     <p id="work"></p>
     <h1 id="time">0 </h1>
@@ -84,17 +74,6 @@ time.innerHTML=t;
          h++;
  document.getElementById("hrs").innerHTML =h;
      }
-}
-window.onload=function(){
-    var v= document.getElementById ("popup").style.display="block";
-    var varun=document.getElementById ("close");
-    varun.addEventListener ("click" , ()=>{
-        document.getElementById ("popup").style.display ="none";
-    });
-    var close=document.getElementById("get");
-    close.addEventListener("click",()=>{
-        document.getElementById ("popup").style.display ="none";
-    });
 }
         </script>
         <style>
@@ -192,6 +171,9 @@ padding-left:110px;
     color:red;
     background-color:green;
     cursor:pointer;
+}
+body{
+background-color:black;
 }
         </style>
     </body>
