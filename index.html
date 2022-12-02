@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer</title>
+        <meta name="viewport" content="width=divice-width ,initial-scale=1.0"></meta>
+    </head>
+    <body>
+    <center>
+    <div id="popup" style="display:none">
+        <h1 id="header"><b>Welcome !</b></h1>
+        <h3 id="get">×</h3>
+        <hr>
+        <br />
+        <b id="content"><li>Welcome to the My web page this is the <br> Demo of pop up when the page is loaded ! <br>Thank you...</li></b>
+        <br />
+        <hr>
+   <div id="close">Close</div>
+    </div>
+    <div id="container">
+    <p id="work"></p>
+    <h1 id="time">0 </h1>
+    <b id="hrs">hour 00 :  </b>
+    <b id="min">00 min </b>
+    <br />
+    <br>
+        <button id="start">Start</button><br>
+        <button id="stop">Stop</button>
+        <button id="C">C</button>
+        </div>
+        <pre>Developed By©Vikas</pre>
+        <br>
+         <div id="task">TASK</div>
+        </center>
+        <script>
+        var time = document.getElementById ("time");
+        var c=document.getElementById ("C");
+        t=0;
+        m=0;
+        h=0;
+        var clear;
+        c.addEventListener("click",()=>{
+            t=0;
+            m=0;
+            h=0;
+            time.innerHTML=t;
+  document.getElementById("min").innerHTML =m+" min";
+  document.getElementById("hrs").innerHTML =h+" hours";
+  var work= document.getElementById("work").innerHTML ="Cleared";
+        })
+   var start = document.getElementById("start");
+start.addEventListener("click" ,()=>{
+     clear = setInterval("go()" ,1000);
+     var work= document.getElementById("work").innerHTML ="Started";
+     start.style.display="none";
+})
+var stop= document.getElementById ("stop");
+stop.addEventListener("click" ,()=>{
+start.style.display="block";
+    clearInterval(clear);
+   var work= document.getElementById("work").innerHTML ="Stoped";
+   var task =document.getElementById("task");
+   var div=document.createElement("div");
+   div.classList.add("newDiv");
+   div.innerHTML = h +" : " + m+ " : "+t;
+   task.appendChild(div); 
+   c.addEventListener("click",()=>{
+       task.removeChild(div);
+   })
+})
+function go(){ 
+t++;
+time.innerHTML=t;
+ if (t<=60){
+         time.innerHTML =t +" sec";
+     }else if (t>=60){
+         t=0;
+         m++;
+        time.innerHTML =t;
+ document.getElementById("min").innerHTML =m+" min";
+     }
+     if(m>=60){
+         t=0;
+         m=0;
+         h++;
+ document.getElementById("hrs").innerHTML =h;
+     }
+}
+window.onload=function(){
+    var v= document.getElementById ("popup").style.display="block";
+    var varun=document.getElementById ("close");
+    varun.addEventListener ("click" , ()=>{
+        document.getElementById ("popup").style.display ="none";
+    });
+    var close=document.getElementById("get");
+    close.addEventListener("click",()=>{
+        document.getElementById ("popup").style.display ="none";
+    });
+}
+        </script>
+        <style>
+            body {
+    padding-top:180px;
+}
+#task{
+    font-size:30px;
+}
+.newDiv{
+font-size:20px;
+    background-color:white;
+    box-shadow:5px 5px 20px inset ;
+    box-shadow:5px 5px 20px black;
+    text-align:center;
+    padding:10px;
+    border-radius:20px;
+    margin-top:10px;
+}
+#work{
+    text-align:justify;
+    margin:2px;
+}
+#start,#stop,#C{
+    padding:10px;
+    width:70px;
+    height:40px;
+    border-radius:15px;
+    display:inline;
+    border-style:none;
+}
+#C:hover{
+    background-color:lightgreen;
+    color:black;
+    border-color:lightgreen;
+}
+#start:hover{
+    background-color:lightgreen;
+    color:black;
+    border-color:lightgreen;
+}
+#stop:hover{
+    background-color:lightgreen;
+    color:black;
+    border-color:lightgreen;
+}
+#min,#hrs{
+    font-size:20px;
+    font-family:serif;
+}
+#container{
+    background-color:white;
+    box-shadow:5px 5px 20px inset ;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:5px 5px 20px black;
+    box-shadow:2px 2px 10px black inset;
+}
+#popup{
+    background-color:lightyellow;
+    border-radius:15px;
+    width:345px;
+    height:200px;
+    position:absolute;
+    transition:0.5s ease-in-out;
+    border:2px;
+    margin-top:10px;
+    border-color:green;
+    text-transform:bold ;
+    font-size:18px;
+    box-shadow:2px 2px 60px black;
+}
+#header{
+    color:blue;
+padding-left:110px;
+}
+#get,#header{
+    display:inline ;
+}
+#get{
+    background-color:red;
+    color:white;
+    margin-left:70px;
+    padding:5px;
+    border-radius:5px;
+} 
+#close{
+    background-color:green;
+    width:20%;
+    color:white;
+    height:10%;
+    border-radius:30px;
+}
+#close:hover{
+    color:red;
+    background-color:green;
+    cursor:pointer;
+}
+        </style>
+    </body>
+</html>
